@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran Workshop</title>
+</head>
+<body>
+  
+  <h1>Formulir Pendaftaran Peserta Workshop Web Development</h1>
+  <p>Silakan isi data berikut untuk mendaftar sebagai peserta workshop.</p>
+     
+     <img src="logo teknik.png" alt="logo workshop" width="250"/><br>
+     
+     <a href="index.html"> ← halaman utama</a>
+     
+  <h2>Jadwal workshop</h2>
+  <table border="1">
+    <tr>
+      <th> Tanggal</th>
+      <th> Waktu</th>
+      <th> Lokasi</th>
+    </tr>
+    <tr>
+      <td> 10 Sep 2025 </td>
+      <td> 09.00 WIB </td>
+      <td> unima </td>
+    </tr>
+    <tr>
+      <td> 12 Sep 2025</td>
+      <td> 08.00 WIB</td>
+      <td>  unklab</td>
+    </tr>
+    <tr>
+      <td> 15 Sep 2025</td>
+      <td> 10.00 WITA</td>
+      <td>  unsrat</td>
+    </tr>
+    <tr>
+      <td> 17 Sep 2025</td>
+      <td> 07.30 WIB</td>
+      <td>  poltek</td>
+    </tr>
+  </table><br>
+  <form oninput="hasil.value = parseInt(angkaA.value) + parseInt(angkaB.value)">
+
+    <fieldset>
+      <legend><b>Data Diri</b></legend>
+      <div>
+        <label>Nama Lengkap:</label><br>
+        <input type="text" name="nama" placeholder="Contoh: jonathan " required>
+      </div>
+      <div>
+        <label>Email:</label><br>
+        <input type="email" name="email" placeholder="Contoh: email@gmail.com" required>
+      </div>
+      <div>
+        <label>Nomor HP:</label><br>
+        <input type="tel" name="nohp" placeholder="Contoh: 08123456789">
+      </div>
+      <div>
+        <label>Usia:</label><br>
+        <input type="number" name="usia" min="10" max="100" placeholder="Contoh: 20">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><b>Pilihan Workshop</b></legend>
+      <div>
+        <label>Jenis Workshop:</label><br>
+        <input type="radio" name="jenis" value="frontend"> Frontend<br>
+        <input type="radio" name="jenis" value="backend"> Backend<br>
+        <input type="radio" name="jenis" value="fullstack"> Fullstack
+      </div>
+      <div>
+        <label>Hari Keikutsertaan:</label><br>
+        <input type="checkbox" name="hari" value="Hari 1"> Hari 1<br>
+        <input type="checkbox" name="hari" value="Hari 2"> Hari 2<br>
+        <input type="checkbox" name="hari" value="Hari 3"> Hari 3
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><b>Kota Dan Alasan</b></legend>
+      <div>
+        <label>Pilih Kota Lokasi:</label><br>
+        <select name="kota">
+          <optgroup label="Jawa">
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+          </optgroup>
+          <optgroup label="Luar Jawa">
+            <option value="manado">Manado</option>
+            <option value="tomohon">Tomohon</option>
+            <option value="airmadidi">Airmadidi</option>
+          </optgroup>
+        </select>
+      </div>
+      <div>
+        <label>Alasan Mengikuti Workshop:</label><br>
+        <textarea name="alasan" rows="3" cols="40" placeholder="Tuliskan alasan Anda..."></textarea>
+      </div>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>Lain-lain</legend>
+      <div>
+        <label>Kuota Terisi:</label><br>
+        <progress value="50" max="100">50%</progress>
+      </div>
+      <div>
+        <label>Tingkat Penguasaan HTML:</label><br>
+        <meter value="7" min="0" max="10">7/10</meter>
+      </div>
+      <div>
+        <label>Simulasi Penjumlahan:</label><br>
+        <input type="number" name="angkaA" value="0"> +
+        <input type="number" name="angkaB" value="0"> =
+        <output name="hasil">0</output>
+      </div>
+    </fieldset>
+
+    <div align="center">
+  <button type="submit">Daftar</button>
+  <button type="reset">Reset</button>
+</div>
+
+  </form>
+
+</body>
+</html>

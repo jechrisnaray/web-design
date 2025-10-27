@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ujian Mid + Kelas Web Design</title>
+  <style>
+    
+    header {
+      background-color: rgb(0, 144, 7);
+      color: aliceblue;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: blanchedalmond;
+      overflow: hidden;
+    }
+
+    nav a {
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      background-color: white;
+    }
+
+    .container {
+      display: flex;
+      margin: 20px;
+      align-items: stretch;
+      min-height: 400px;
+    }
+
+    .content {
+      flex: 3;
+      padding: 20px;
+      background: none;
+      text-align: left;
+    }
+
+    .sidebar {
+      background-color: chocolate;
+      flex: 1;
+      padding: 20px;
+      margin-left: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sidebar:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 20px 0;
+    }
+
+    table td {
+      padding: 8px;
+    }
+
+    fieldset {
+      width: 60%;
+      margin: 20px 0;
+      padding: 10px;
+      text-align: left;
+    }
+
+    /* ==== Desain Interaktif ==== */
+    #judul {
+      color: darkblue;
+      margin-top: 40px;
+    }
+
+    #hasil {
+      color: green;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: aquamarine;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: turquoise;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to my website</h1>
+    <p>Universitas Klabat</p>
+  </header>
+
+  <nav>
+    <a href="form.html">Home</a>
+    <a href="forms.html">About</a>
+    <a href="praktek.html">Service</a>
+  </nav>
+
+  <div class="container">
+    <div class="content">
+      <h2>My Content Area</h2>
+      <p>This is where the main content goes.</p>
+
+      <div>
+        <img src="download (1).jpg" alt="meh" width="1000">
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h3>Ini adalah Sidebar</h3>
+      <ul>
+        <li>Menu samping 1</li>
+        <li>Menu samping 2</li>
+        <li>Menu samping 3</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Tabel Data</h3>
+  <table border="1">
+    <tr>
+      <td><b>Tanggal</b></td>
+      <td><b>Waktu</b></td>
+      <td><b>Lokasi</b></td>
+    </tr>
+    <tr>
+      <td>10 Sep 2025</td>
+      <td>09.00 WIB</td>
+      <td>Monas, Jakarta</td>
+    </tr>
+    <tr>
+      <td>12 Sep 2025</td>
+      <td>08.00 WIB</td>
+      <td>Gedung Sate, Bandung</td>
+    </tr>
+  </table>
+
+  <!-- ==== Bagian Formulir di Paling Bawah ==== -->
+  <h3>Formulir Pendaftaran</h3>
+  <fieldset>
+    <legend>Data Diri</legend>
+    <label>
+      Nama Lengkap:
+      <input type="text" name="nama" placeholder="Contoh: Budi Santoso" required>
+    </label><br><br>
+
+    <label>
+      Email:
+      <input type="email" name="email" placeholder="Contoh: budi@email.com" required>
+    </label><br><br>
+
+    <label>
+      Pilih Kota Lokasi:<br>
+      <select name="kota">
+        <optgroup label="Jawa">
+          <option value="jakarta">Jakarta</option>
+          <option value="bandung">Bandung</option>
+          <option value="surabaya">Surabaya</option>
+        </optgroup>
+      </select>
+    </label>
+  </fieldset>
+
+  <!-- ==== Bagian Interaktif Kelas Web Design ==== -->
+  <h1 id="judul">Hello, kelas web design unklab</h1>
+
+  <label>
+    <input type="checkbox" id="setujuCheckbox" onchange="checkboxChanged(this)">
+    Saya setuju dan siap daftar!
+  </label>
+  <br><br>
+
+  <button onclick="ubahText()">Kirim Formulir</button>
+  <button onclick="resetText()">Reset</button>
+
+  <p id="hasil"></p>
+
+  
+  <script>
+    function checkboxChanged(checkbox) {
+      if (checkbox.checked === true) {
+        alert("harus mengisi semua form dlu");
+      } 
+    }
+
+    function isCheckboxChecked() {
+      let checkbox = document.getElementById("setujuCheckbox");
+      return checkbox.checked;
+    }
+
+    function ubahText() {
+      if (isCheckboxChecked() === false) {
+        alert("Silakan centang kotak persetujuan terlebih dahulu.");
+        return;
+      }
+
+      let yakin = confirm("Apakah anda yakin ingin mengirim formulir?");
+      if (yakin === true) {
+        let judul = document.getElementById("judul");
+        let hasil = document.getElementById("hasil");
+
+        judul.textContent = "Selamat Datang!";
+        hasil.textContent = "Formulir telah berhasil dikirim.";
+        alert("Formulir telah dikirim!");
+      } else {
+        let hasil = document.getElementById("hasil");
+        hasil.textContent = "Formulir dibatalkan.";
+        alert("Pengiriman dibatalkan.");
+      }
+    }
+
+    function resetText() {
+      if (isCheckboxChecked() === false) {
+        alert("Silakan centang kotak persetujuan terlebih dahulu.");
+        return;
+      }
+
+      let yakin = confirm("Apakah anda yakin ingin mereset?");
+      if (yakin === true) {
+        let judul = document.getElementById("judul");
+        let hasil = document.getElementById("hasil");
+
+        judul.textContent = "Hello, kelas web design unklab";
+        hasil.textContent = "Reset berhasil.";
+        alert("Teks telah direset.");
+      } else {
+        let hasil = document.getElementById("hasil");
+        hasil.textContent = "Reset dibatalkan.";
+        alert("Reset dibatalkan.");
+      }
+    }
+  </script>
+
+  
+</body>
+</html>

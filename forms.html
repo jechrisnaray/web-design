@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran Workshop</title>
+</head>
+<body>
+
+  <h1>Formulir Pendaftaran Peserta Workshop Web Development</h1>
+  <p>Silakan isi data berikut untuk mendaftar sebagai peserta workshop.</p>
+
+  <form oninput="hasil.value = parseInt(angkaA.value) + parseInt(angkaB.value)">
+    
+    <fieldset>
+      <legend>Data Diri</legend>
+
+      <label>
+        Nama Lengkap:
+        <input type="text" name="nama" placeholder="Contoh: Budi Santoso" required>
+      </label><br><br>
+
+      <label>
+        Email:
+        <input type="email" name="email" placeholder="Contoh: budi@email.com" required>
+      </label><br><br>
+
+      <label>
+        Usia:
+        <input type="number" name="usia" min="10" max="100" placeholder="Contoh: 20">
+      </label><br><br>
+
+      <label>
+        Nomor HP:
+        <input type="tel" name="nohp" placeholder="Contoh: 08123456789">
+      </label><br><br>
+    </fieldset>
+    <br>
+
+    
+    <fieldset>
+      <legend>Pilihan Workshop</legend>
+
+      Jenis Workshop:<br>
+      <label><input type="radio" name="jenis" value="frontend"> Frontend</label><br>
+      <label><input type="radio" name="jenis" value="backend"> Backend</label><br>
+      <label><input type="radio" name="jenis" value="fullstack"> Fullstack</label><br><br>
+
+      Hari Keikutsertaan:<br>
+      <label><input type="checkbox" name="hari" value="Hari 1"> Hari 1</label><br>
+      <label><input type="checkbox" name="hari" value="Hari 2"> Hari 2</label><br>
+      <label><input type="checkbox" name="hari" value="Hari 3"> Hari 3</label><br><br>
+    </fieldset>
+    <br>
+
+    
+    <fieldset>
+      <legend>Preferensi Tambahan</legend>
+
+      <label>
+        Pilih Kota Lokasi:<br>
+        <select name="kota">
+          <optgroup label="Jawa">
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+          </optgroup>
+          <optgroup label="Luar Jawa">
+            <option value="manado">Manado</option>
+            <option value="tomohon">Tomohon</option>
+            <option value="airmadidi">Airmadidi</option>
+          </optgroup>
+        </select>
+      </label><br><br>
+
+      <label>
+        Alasan Mengikuti Workshop:<br>
+        <textarea name="alasan" rows="3" cols="40" placeholder="Tuliskan alasan Anda..."></textarea>
+      </label><br><br>
+    </fieldset>
+    <br>
+
+    
+    <fieldset>
+      <legend>Lain-lain</legend>
+
+      <label>
+        Kuota Terisi:
+        <progress value="50" max="100">50%</progress>
+      </label><br><br>
+
+      <label>
+        Tingkat Penguasaan HTML:
+        <meter value="7" min="0" max="10">7/10</meter>
+      </label><br><br>
+
+      <label>Simulasi Penjumlahan:</label><br>
+      <input type="number" name="angkaA" value="0">
+      +
+      <input type="number" name="angkaB" value="0">
+      =
+      <output name="hasil">0</output><br><br>
+    </fieldset>
+    <br>
+
+  
+    <button type="submit">Daftar</button>
+    <button type="reset">Reset</button>
+  </form>
+
+
+</body>
+</html>

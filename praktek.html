@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran Demo</title>
+
+  <style>
+    body {
+      background-color: rgb(172, 172, 172);
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+  </style>
+
+  <style>
+    .judul {
+      color: rgba(30, 98, 11, 0.982);
+      text-align: center;
+      font-size: 32px;
+    }
+  </style>
+
+  <style>
+    .p1 {
+      color: rgb(252, 143, 172);
+      font-family: sans-serif;
+      line-height: 1,6;
+      font-size: 25px;
+      text-decoration: underline;
+    }
+  </style>
+
+  <style>
+    .box {
+    width: 250px;              
+    padding: 15px;             
+    border: 2px solid black;   
+    margin: 20px ;       
+    background-color: #9b9595;
+    }
+    .box{
+      position: relative;
+      left: 0px;
+      transition: left 1s ease;
+    }
+    .box:hover{
+      left: 50px;
+    }
+    .button{
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: aquamarine;
+      border: none;
+      color: aliceblue;
+      transition: background-color 1s ease,
+    }
+    .button:hover{
+      background-color: rgb(135, 136, 134);
+      color:rgb(2, 2, 2);
+    }
+    .box2{
+      width: 100px;
+      height: 100px;
+      background-color: rgb(142, 142, 142);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: tranform 1s ease;
+      animation: putar 6s linear infinite;
+    }
+    @keyframes putar{
+      from{
+        transform: rotate(0deg);
+      }
+      to{
+        transform:rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="judul">Formulir Peserta Aksi Demonstrasi</h1>
+  
+  <div class="box">
+    Ini adalah form dengan 
+    <ui>
+      <li>Merah Putih</li>
+      <li>Harga Mati</li>
+      <li>Hidup Indonesia</li>
+    </ui>
+  </div>
+  <h3 class = "button">ganti warna bosq </h3>
+  <h3 class = "box2">putarrrr</h3>
+
+  <p class="p1">
+    Silakan isi data berikut sebagai bagian dari dokumentasi dan pengorganisasian aksi damai.
+  </p><br>
+
+  <img src="images.jpeg" alt="Ilustrasi Aksi Demo" width="500"><br>
+
+  <a href="index.html">← Kembali ke Halaman Utama</a>
+
+  <h2>Jadwal Demo</h2>
+  <table border="1">
+    <tr>
+      <th>Tanggal</th>
+      <th>Waktu</th>
+      <th>Lokasi</th>
+      <th>Isu Utama</th>
+    </tr>
+    <tr>
+      <td>10 Sep 2025</td>
+      <td>09.00 WIB</td>
+      <td>Monas, Jakarta</td>
+      <td>Penolakan Revisi UU</td>
+    </tr>
+    <tr>
+      <td>12 Sep 2025</td>
+      <td>08.00 WIB</td>
+      <td>Gedung Sate, Bandung</td>
+      <td>Pendidikan Gratis</td>
+    </tr>
+    <tr>
+      <td>15 Sep 2025</td>
+      <td>10.00 WITA</td>
+      <td>Lapangan Karebosi, Makassar</td>
+      <td>Kesejahteraan Buruh</td>
+    </tr>
+    <tr>
+      <td>17 Sep 2025</td>
+      <td>07.30 WIB</td>
+      <td>Alun-alun Selatan, Yogyakarta</td>
+      <td>Lingkungan Hidup</td>
+    </tr>
+  </table>
+
+  <fieldset>
+    <legend>Data Diri</legend>
+    
+    <label>
+      Nama Lengkap:
+      <input type="text" name="nama" placeholder="Contoh: Budi Santoso" required>
+    </label>
+    <br><br>
+
+    <label>
+      Email:
+      <input type="email" name="email" placeholder="Contoh: budi@email.com" required>
+    </label>
+    <br><br>
+
+    <label>
+      Password:
+      <input type="password" name="password" placeholder="Password">
+    </label>
+    <br><br>
+  </fieldset>
+  <br>
+
+  <p>Jenis Kelamin:</p>
+  <input type="radio" name="gender" value="Laki-laki"> Laki-laki
+  <input type="radio" name="gender" value="Perempuan"> Perempuan
+  <br><br>
+
+  <p>Isu yang Anda Dukung:</p>
+  <input type="checkbox" name="isu" value="UU"> Tolak Revisi UU<br>
+  <input type="checkbox" name="isu" value="buruh"> Kesejahteraan Buruh<br><br>
+
+  <label>
+    Kota Asal:
+    <select name="kota">
+      <optgroup label="Pulau Jawa">
+        <option value="jakarta">Jakarta</option>
+        <option value="bandung">Bandung</option>
+        <option value="manado">Manado</option>
+      </optgroup>
+    </select>
+  </label>
+  <br><br>
+
+  <label>
+    Bekal untuk Aksi:
+    <input list="daftar-bekal" name="bekal">
+    <datalist id="daftar-bekal">
+      <option value="Air Minum">
+      <option value="Masker">
+      <option value="Poster">
+      <option value="Pelindung Matahari">
+    </datalist>
+  </label>
+  <br><br>
+
+  <label>
+    Pesan:
+    <textarea name="pesan" rows="3" cols="40"></textarea>
+  </label>
+  <br><br>
+
+  <label>
+    Energi Hari Ini:
+    <meter value="0.8" min="0" max="1">80%</meter>
+  </label>
+  <br><br>
+
+  <label>
+    Persiapan Aksi (%):
+    <progress value="70" max="100">70%</progress>
+  </label>
+
+</body>
+</html>

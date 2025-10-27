@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Formulir data pengguna</h2>
+    <form id="DataUser">
+        <label> nama :</label>
+        <input type="text" id="nama" required/>
+
+        <label> email :</label>
+        <textarea id="email" required></textarea>
+
+        <label> pesan :</label>
+        <input type="text" id="pesan" rows="3" required/>
+
+        <button type="submit"> simpan data</button>
+    </form>
+
+    <div id="hasil"></div>
+
+    <script>
+        const form = document.getElementById("DataUser");
+        const hasil = document.getElementById("hasil");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+        
+            const nama = document.getElementById("nama").value;
+            const email = document.getElementById("email").value;
+            const pesan = document.getElementById("pesan").value;
+
+            const formulir = { nama, email, pesan };
+
+            localStorage.setItem("data user", JSON.stringify(formulir));
+
+            tampilkanData();
+        });
+
+        function tampilkanData() {
+            const data = JSON.parse(localStorage.getItem("data user"));
+            if (data) {
+                hasil.innerHTML = `
+                    <h3>Data tersimpan :</h3>
+                    <p><strong>Nama:</strong> ${data.nama}</p>
+                    <p><strong>Email:</strong> ${data.email}</p>
+                    <p><strong>Pesan:</strong> ${data.pesan}</p>
+                `;
+            }
+        }
+        window.onload = tampilkanData;
+    </script>
+</body>
+</html>
+ 

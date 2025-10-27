@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulir Pendaftaran Workshop</title>
+</head>
+<body>
+
+  <h1>Formulir Pendaftaran Peserta Workshop Web Development</h1>
+  <p>Silakan isi data berikut untuk mendaftar sebagai peserta workshop.</p>
+
+  <form oninput="hasil.value = parseInt(angkaA.value) + parseInt(angkaB.value)">
+
+    <fieldset>
+      <legend>Data Diri</legend>
+      <table>
+        <tr>
+          <td>Nama Lengkap:</td>
+          <td><input type="text" name="nama" placeholder="Contoh: rendy sumual" required></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="email" name="email" placeholder="Contoh: rendysumual@email.com" required></td>
+        </tr>
+        <tr>
+          <td>Usia:</td>
+          <td><input type="number" name="usia" min="10" max="100" placeholder="Contoh: 20"></td>
+        </tr>
+        <tr>
+          <td>Nomor HP:</td>
+          <td><input type="tel" name="nohp" placeholder="Contoh: 08123456789"></td>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+
+    <fieldset>
+      <legend>Pilihan Workshop</legend>
+      <table>
+        <tr>
+          <td>Jenis Workshop:</td>
+          <td>
+            <label><input type="radio" name="jenis" value="frontend"> Frontend</label><br>
+            <label><input type="radio" name="jenis" value="backend"> Backend</label><br>
+            <label><input type="radio" name="jenis" value="fullstack"> Fullstack</label>
+          </td>
+        </tr>
+        <tr>
+          <td>Hari Keikutsertaan:</td>
+          <td>
+            <label><input type="checkbox" name="hari" value="Hari 1"> Hari 1</label><br>
+            <label><input type="checkbox" name="hari" value="Hari 2"> Hari 2</label><br>
+            <label><input type="checkbox" name="hari" value="Hari 3"> Hari 3</label>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+
+    <fieldset>
+      <legend>Preferensi Tambahan</legend>
+      <table>
+        <tr>
+          <td>Pilih Kota Lokasi:</td>
+          <td>
+            <select name="kota">
+              <optgroup label="Jawa">
+                <option value="jakarta">Jakarta</option>
+                <option value="bandung">Bandung</option>
+                <option value="surabaya">Surabaya</option>
+              </optgroup>
+              <optgroup label="Luar Jawa">
+                <option value="manado">Manado</option>
+                <option value="tomohon">Tomohon</option>
+                <option value="airmadidi">Airmadidi</option>
+              </optgroup>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Alasan Mengikuti Workshop:</td>
+          <td><textarea name="alasan" rows="3" cols="40" placeholder="Tuliskan alasan Anda..."></textarea></td>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+
+    <fieldset>
+      <legend>Lain-lain</legend>
+      <table>
+        <tr>
+          <td>Kuota Terisi:</td>
+          <td><progress value="50" max="100">50%</progress></td>
+        </tr>
+        <tr>
+          <td>Tingkat Penguasaan HTML:</td>
+          <td><meter value="7" min="0" max="10">7/10</meter></td>
+        </tr>
+        <tr>
+          <td>Simulasi Penjumlahan:</td>
+          <td>
+            <input type="number" name="angkaA" value="0"> +
+            <input type="number" name="angkaB" value="0"> =
+            <output name="hasil">0</output>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+    <br>
+
+    <button type="submit">Daftar</button>
+    <button type="reset">Reset</button>
+  </form>
+
+</body>
+</html>
