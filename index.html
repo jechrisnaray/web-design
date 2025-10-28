@@ -5,156 +5,118 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ujian Mid + Kelas Web Design</title>
   <style>
-    /* ==== Gaya Umum ==== */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       margin: 0;
-      background-color: #f4f4f9;
-      color: #333;
+      background-color: #f9f9f9;
     }
 
     header {
-      background: linear-gradient(90deg, #007b3e, #00a86b);
-      color: white;
-      padding: 20px;
+      background-color: rgb(0, 144, 7);
+      color: aliceblue;
+      padding: 10px;
       text-align: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     }
 
     nav {
-      background-color: #fff8e7;
-      display: flex;
-      justify-content: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: blanchedalmond;
+      overflow: hidden;
     }
 
     nav a {
-      color: #333;
-      padding: 14px 25px;
+      float: left;
+      display: block;
+      color: black;
+      text-align: center;
+      padding: 14px 20px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
     }
 
-    nav a:hover {
-      background-color: #00a86b;
-      color: white;
-      border-radius: 5px;
+    nav a:hover, nav a.active {
+      background-color: white;
+    }
+
+    section {
+      display: none;
+      padding: 30px;
+      margin: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    #home {
+      display: block; /* halaman default */
     }
 
     .container {
       display: flex;
       margin: 20px;
-      gap: 20px;
-      flex-wrap: wrap;
+      align-items: stretch;
+      min-height: 400px;
     }
 
     .content {
       flex: 3;
-      background: white;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: none;
+      text-align: left;
     }
 
     .sidebar {
+      background-color: chocolate;
       flex: 1;
-      background-color: #ffb16e;
       padding: 20px;
-      border-radius: 10px;
-      color: white;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      margin-left: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .sidebar:hover {
-      transform: translateY(-5px);
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     table {
       border-collapse: collapse;
-      width: 100%;
-      margin-top: 15px;
+      width: 60%;
+      margin: 20px 0;
     }
 
-    table, th, td {
-      border: 1px solid #999;
+    table td {
+      padding: 8px;
     }
 
-    td, th {
+    fieldset {
+      width: 60%;
+      margin: 20px 0;
       padding: 10px;
       text-align: left;
     }
 
-    fieldset {
-      background-color: white;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      width: 100%;
-      padding: 15px;
-      margin-top: 20px;
-    }
-
-    input, select {
-      padding: 5px;
-      margin-top: 5px;
-      width: 90%;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
     #judul {
       color: darkblue;
-      margin-top: 30px;
-      text-align: center;
+      margin-top: 40px;
     }
 
     #hasil {
       color: green;
       font-weight: bold;
       margin-top: 10px;
-      text-align: center;
     }
 
     button {
-      margin: 5px;
-      padding: 10px 20px;
-      background-color: #00a86b;
-      color: white;
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: aquamarine;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease;
     }
 
     button:hover {
-      background-color: #007b3e;
+      background-color: turquoise;
     }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #007b3e;
-      color: white;
-      margin-top: 40px;
-    }
-
-    /* ==== Tampilan Dinamis Section ==== */
-    section {
-      display: none;
-    }
-
-    section.active {
-      display: block;
-      animation: fadeIn 0.5s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
   </style>
 </head>
 
@@ -165,22 +127,25 @@
   </header>
 
   <nav>
-    <a href="#" onclick="showSection('home')">Home</a>
-    <a href="#" onclick="showSection('about')">About</a>
-    <a href="#" onclick="showSection('contact')">Contact</a>
+    <a class="active" onclick="showPage('home', this)">Home</a>
+    <a onclick="showPage('about', this)">About</a>
+    <a onclick="showPage('contact', this)">Contact</a>
   </nav>
 
-  <!-- ==== Bagian HOME ==== -->
-  <section id="home" class="active">
+  <!-- ========== HALAMAN HOME ========== -->
+  <section id="home">
     <div class="container">
       <div class="content">
         <h2>My Content Area</h2>
-        <p>Selamat datang di website saya! Ini adalah bagian utama dari konten.</p>
-        <img src="download (1).jpg" alt="meh" width="100%">
+        <p>This is where the main content goes.</p>
+
+        <div>
+          <img src="download (1).jpg" alt="meh" width="1000">
+        </div>
       </div>
 
       <div class="sidebar">
-        <h3>Sidebar</h3>
+        <h3>Ini adalah Sidebar</h3>
         <ul>
           <li>Menu samping 1</li>
           <li>Menu samping 2</li>
@@ -190,11 +155,11 @@
     </div>
 
     <h3>Tabel Data</h3>
-    <table>
+    <table border="1">
       <tr>
-        <th>Tanggal</th>
-        <th>Waktu</th>
-        <th>Lokasi</th>
+        <td><b>Tanggal</b></td>
+        <td><b>Waktu</b></td>
+        <td><b>Lokasi</b></td>
       </tr>
       <tr>
         <td>10 Sep 2025</td>
@@ -207,73 +172,110 @@
         <td>Gedung Sate, Bandung</td>
       </tr>
     </table>
+
+    <h3>Formulir Pendaftaran</h3>
+    <fieldset>
+      <legend>Data Diri</legend>
+      <label>
+        Nama Lengkap:
+        <input type="text" name="nama" placeholder="Contoh: Budi Santoso" required>
+      </label><br><br>
+
+      <label>
+        Email:
+        <input type="email" name="email" placeholder="Contoh: budi@email.com" required>
+      </label><br><br>
+
+      <label>
+        Pilih Kota Lokasi:<br>
+        <select name="kota">
+          <optgroup label="Jawa">
+            <option value="jakarta">Jakarta</option>
+            <option value="bandung">Bandung</option>
+            <option value="surabaya">Surabaya</option>
+          </optgroup>
+        </select>
+      </label>
+    </fieldset>
+
+    <h1 id="judul">Hello, kelas web design unklab</h1>
+
+    <label>
+      <input type="checkbox" id="setujuCheckbox" onchange="checkboxChanged(this)">
+      Saya setuju dan siap daftar!
+    </label>
+    <br><br>
+
+    <button onclick="ubahText()">Kirim Formulir</button>
+    <button onclick="resetText()">Reset</button>
+
+    <p id="hasil"></p>
   </section>
 
-  <!-- ==== Bagian ABOUT ==== -->
+  <!-- ========== HALAMAN ABOUT ========== -->
   <section id="about">
-    <div class="content" style="margin: 20px;">
-      <h2>Tentang Website Ini</h2>
-      <p>Website ini dibuat sebagai proyek Ujian Tengah Semester untuk mata kuliah Web Design di Universitas Klabat. Halaman ini dirancang untuk menampilkan contoh layout dengan elemen interaktif, navigasi, tabel, dan formulir sederhana.</p>
-      <p>Desain dibuat sederhana namun tetap elegan agar mudah dibaca dan enak di mata pengguna.</p>
-    </div>
+    <h2>Tentang Kami</h2>
+    <p>Kami adalah mahasiswa Universitas Klabat yang belajar Web Design. Website ini dibuat untuk ujian tengah semester dalam mata kuliah Web Design.</p>
+
+    <h3>Visi Kami</h3>
+    <p>Membuat website yang menarik, mudah digunakan, dan informatif.</p>
+
+    <h3>Misi Kami</h3>
+    <ul>
+      <li>Menguasai dasar desain web modern</li>
+      <li>Menerapkan interaktivitas dengan HTML, CSS, dan JavaScript</li>
+      <li>Membuat tampilan menarik dan fungsional</li>
+    </ul>
   </section>
 
-  <!-- ==== Bagian CONTACT ==== -->
+  <!-- ========== HALAMAN CONTACT ========== -->
   <section id="contact">
-    <div class="content" style="margin: 20px;">
-      <h2>Formulir Kontak</h2>
-      <fieldset>
-        <legend>Data Diri</legend>
-        <label>
-          Nama Lengkap:<br>
-          <input type="text" name="nama" placeholder="Contoh: Budi Santoso" required>
-        </label><br><br>
+    <h2>Hubungi Kami</h2>
+    <p>Silakan kirim pesan atau saran Anda melalui form berikut:</p>
 
-        <label>
-          Email:<br>
-          <input type="email" name="email" placeholder="Contoh: budi@email.com" required>
-        </label><br><br>
+    <fieldset style="width: 60%;">
+      <legend>Formulir Kontak</legend>
+      <label>Nama:<br>
+        <input type="text" placeholder="Masukkan nama anda" required>
+      </label><br><br>
 
-        <label>
-          Pilih Kota:<br>
-          <select name="kota">
-            <optgroup label="Jawa">
-              <option value="jakarta">Jakarta</option>
-              <option value="bandung">Bandung</option>
-              <option value="surabaya">Surabaya</option>
-            </optgroup>
-          </select>
-        </label><br><br>
+      <label>Email:<br>
+        <input type="email" placeholder="Masukkan email anda" required>
+      </label><br><br>
 
-        <input type="checkbox" id="setujuCheckbox" onchange="checkboxChanged(this)">
-        <label for="setujuCheckbox">Saya setuju dan siap daftar!</label><br><br>
+      <label>Pesan:<br>
+        <textarea rows="5" cols="50" placeholder="Tulis pesan anda di sini..."></textarea>
+      </label><br><br>
 
-        <button onclick="ubahText()">Kirim Formulir</button>
-        <button onclick="resetText()">Reset</button>
-      </fieldset>
+      <button onclick="alert('Pesan telah dikirim!')">Kirim</button>
+    </fieldset>
 
-      <h3 id="judul">Hello, kelas web design unklab</h3>
-      <p id="hasil"></p>
-    </div>
+    <p>Atau hubungi kami di:</p>
+    <ul>
+      <li>Email: info@unklab.ac.id</li>
+      <li>Telepon: +62 812-3456-7890</li>
+      <li>Alamat: Airmadidi, Minahasa Utara</li>
+    </ul>
   </section>
-
-  <footer>
-    <p>© 2025 | Dibuat oleh Mahasiswa Web Design UNKLAB</p>
-  </footer>
 
   <script>
-    // ==== Fungsi Navigasi Antar Section ====
-    function showSection(id) {
-      let sections = document.querySelectorAll("section");
-      sections.forEach(sec => sec.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
+    // fungsi navigasi antar halaman
+    function showPage(pageId, linkElement) {
+      // sembunyikan semua section
+      document.querySelectorAll("section").forEach(sec => sec.style.display = "none");
+      // tampilkan halaman sesuai id
+      document.getElementById(pageId).style.display = "block";
+
+      // ubah warna aktif pada menu
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      linkElement.classList.add("active");
     }
 
-    // ==== Fungsi Checkbox dan Form ====
+    // fungsi interaktif dari halaman Home
     function checkboxChanged(checkbox) {
-      if (checkbox.checked) {
-        alert("Pastikan semua form sudah diisi dengan benar!");
-      }
+      if (checkbox.checked === true) {
+        alert("harus mengisi semua form dlu");
+      } 
     }
 
     function isCheckboxChecked() {
@@ -287,8 +289,8 @@
       }
 
       let yakin = confirm("Apakah anda yakin ingin mengirim formulir?");
-      let judul = document.getElementById("judul");
       let hasil = document.getElementById("hasil");
+      let judul = document.getElementById("judul");
 
       if (yakin) {
         judul.textContent = "Selamat Datang!";
@@ -307,8 +309,8 @@
       }
 
       let yakin = confirm("Apakah anda yakin ingin mereset?");
-      let judul = document.getElementById("judul");
       let hasil = document.getElementById("hasil");
+      let judul = document.getElementById("judul");
 
       if (yakin) {
         judul.textContent = "Hello, kelas web design unklab";
